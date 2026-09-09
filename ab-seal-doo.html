@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AB Seal.doo | Profesionalno krečenje</title>
+<meta name="description" content="Profesionalno krečenje stanova, kuća i poslovnih prostora. Precizan rad, čist završni rezultat i pouzdana usluga.">
+
+<meta property="og:title" content="AB Seal.doo | Profesionalno krečenje">
+<meta property="og:description" content="Precizni i pouzdani molerski radovi za domove, stanove i poslovne prostore.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/interior-04-living-dark-evening.jpg">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="preload" as="image" href="images/interior-04-living-dark-evening.jpg">
+<style>
+/* =========================================================
+   AB Seal.doo — design tokens
+========================================================= */
+:root{
+  --bg:            #FAFAF7;
+  --bg-alt:        #F1F0EA;
+  --ink:           #17180F;
+  --ink-soft:      #56584C;
+  --ink-faint:     #8B8D80;
+  --line:          #E4E2D8;
+  --green:         #5EA327;
+  --green-dark:    #4A8620;
+  --green-tint:    #EEF5E4;
+  --white:         #FFFFFF;
+  --charcoal:      #17180F;
+
+  --font-head: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+
+  --shadow-sm: 0 2px 14px rgba(23,24,15,.07);
+  --shadow-md: 0 16px 40px rgba(23,24,15,.12);
+
+  --container: 1200px;
+  --nav-h: 84px;
+}
+
+/* =========================================================
+   Reset
+========================================================= */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; scroll-padding-top: var(--nav-h); }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; padding:0; }
+ul{ margin:0; padding:0; list-style:none; }
+h1,h2,h3,h4{
+  font-family:var(--font-head); font-weight:600; line-height:1.12; margin:0;
+  letter-spacing:-.02em; text-wrap:balance;
+}
+p{ margin:0; }
+p, li{ text-wrap:pretty; }
+input,select,textarea{ font:inherit; color:inherit; }
+
+.skip-link{
+  position:absolute; left:-999px; top:0; background:var(--green); color:#fff;
+  padding:10px 16px; z-index:200; border-radius:0 0 8px 0;
+}
+.skip-link:focus{ left:0; }
+
+:focus-visible{ outline:2.5px solid var(--green); outline-offset:3px; }
+
+.container{ max-width:var(--container); margin:0 auto; padding:0 24px; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}
+
+/* =========================================================
+   Buttons
+========================================================= */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  font-family:var(--font-body); font-weight:600; font-size:.95rem;
+  padding:14px 26px; border-radius:var(--radius-sm);
+  transition:transform .25s ease, background-color .25s ease, border-color .25s ease, box-shadow .25s ease, color .25s ease;
+  white-space:nowrap; border:1.5px solid transparent;
+}
+.btn-sm{ padding:10px 20px; font-size:.88rem; }
+.btn-lg{ padding:16px 32px; font-size:1rem; }
+
+.btn-green{ background:var(--green); color:#fff; box-shadow:var(--shadow-sm); }
+.btn-green:hover{ background:var(--green-dark); transform:translateY(-2px); box-shadow:var(--shadow-md); }
+
+.btn-outline{ border-color:rgba(255,255,255,.65); color:#fff; }
+.btn-outline:hover{ background:rgba(255,255,255,.12); border-color:#fff; transform:translateY(-2px); }
+
+.btn-ghost{ border-color:rgba(255,255,255,.3); color:#fff; }
+.btn-ghost:hover{ background:rgba(255,255,255,.1); border-color:#fff; }
+
+/* =========================================================
+   Navbar
+========================================================= */
+.navbar{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  height:var(--nav-h);
+  transition:background-color .35s ease, box-shadow .35s ease, backdrop-filter .35s ease;
+}
+.navbar-inner{
+  max-width:var(--container); margin:0 auto; padding:0 24px; height:100%;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{ display:flex; align-items:center; height:100%; }
+.brand-logo{ height:46px; width:auto; transition:filter .3s ease, transform .3s cubic-bezier(.2,.7,.2,1); }
+.brand:hover .brand-logo{ transform:scale(1.04); }
+
+.nav-links{ display:flex; align-items:center; gap:30px; }
+.nav-link{
+  font-size:.94rem; font-weight:500; color:#fff; position:relative; padding:6px 0;
+  transition:color .25s ease;
+}
+.nav-link::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:2px;
+  background:var(--green); transform:scaleX(0); transform-origin:left;
+  transition:transform .25s ease;
+}
+.nav-link:hover{ color:var(--green); }
+.nav-link.active::after{ transform:scaleX(1); }
+.nav-cta{ margin-left:6px; }
+
+.navbar.scrolled{
+  background:rgba(250,250,247,.88);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  box-shadow:var(--shadow-sm);
+}
+.navbar.scrolled .nav-link{ color:var(--ink); }
+.navbar.scrolled .nav-link.active{ color:var(--green-dark); }
+.navbar.scrolled .brand-logo{ filter:none; }
+
+.menu-toggle{
+  display:none; flex-direction:column; justify-content:center; gap:5px;
+  width:40px; height:40px;
+}
+.menu-toggle span{
+  display:block; width:24px; height:2px; background:#fff;
+  transition:transform .3s ease, opacity .3s ease, background-color .3s ease;
+  margin:0 auto;
+}
+.navbar.scrolled .menu-toggle span{ background:var(--ink); }
+.menu-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2){ opacity:0; }
+.menu-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* =========================================================
+   Hero
+========================================================= */
+.hero{
+  position:relative; min-height:100svh; display:flex; align-items:flex-end;
+  overflow:hidden; color:#fff;
+}
+.hero-media{ position:absolute; inset:0; overflow:hidden; }
+.hero-media img{
+  width:100%; height:100%; object-fit:cover; object-position:center 65%;
+  transform:scale(1.08); will-change:transform;
+}
+.hero-overlay{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(15,16,10,.35) 0%, rgba(15,16,10,.35) 40%, rgba(12,13,8,.86) 100%);
+}
+.hero-content{
+  position:relative; z-index:2; max-width:var(--container); margin:0 auto;
+  padding:0 24px 100px; width:100%;
+}
+.hero-trust{
+  font-size:.85rem; font-weight:600; letter-spacing:.04em; color:var(--green);
+  margin-bottom:18px;
+}
+.hero-title{
+  font-size:clamp(2.4rem, 5.6vw, 4.6rem); max-width:16ch; margin-bottom:22px;
+}
+.hero-sub{
+  font-size:clamp(1rem, 1.6vw, 1.2rem); max-width:46ch; color:rgba(255,255,255,.88);
+  margin-bottom:36px;
+}
+.hero-actions{ display:flex; flex-wrap:wrap; gap:16px; }
+
+.reveal{ opacity:0; transform:translateY(22px); animation:heroReveal .8s cubic-bezier(.2,.7,.2,1) forwards; }
+.hero-trust.reveal{ animation-delay:.15s; }
+.hero-title.reveal{ animation-delay:.3s; }
+.hero-sub.reveal{ animation-delay:.45s; }
+.hero-actions.reveal{ animation-delay:.6s; }
+@keyframes heroReveal{ to{ opacity:1; transform:translateY(0); } }
+
+/* =========================================================
+   Sections (generic)
+========================================================= */
+.section{ padding:128px 0; }
+.section-alt{ background:var(--bg-alt); }
+.section-head{ max-width:600px; margin-bottom:64px; }
+.section-head h2{ font-size:clamp(1.9rem, 3.2vw, 2.6rem); margin-bottom:18px; }
+.section-head p{ color:var(--ink-soft); font-size:1.08rem; line-height:1.65; max-width:46ch; }
+.eyebrow{
+  display:flex; align-items:center; gap:10px;
+  font-size:.82rem; font-weight:600; color:var(--green-dark);
+  letter-spacing:.03em; margin-bottom:16px;
+}
+.eyebrow::before{
+  content:""; display:block; height:1.5px; width:0; background:var(--green);
+  transition:width .8s cubic-bezier(.2,.7,.2,1);
+}
+.is-visible .eyebrow::before{ width:32px; }
+
+.animate-in{ opacity:0; transform:translateY(30px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); transition-delay:var(--reveal-delay, 0ms); }
+.animate-in.is-visible{ opacity:1; transform:translateY(0); }
+
+/* =========================================================
+   Services
+========================================================= */
+.services-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+}
+.service-card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:34px 28px; transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.service-card:hover{
+  transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:transparent;
+}
+.service-icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:52px; height:52px; border-radius:12px; background:var(--green-tint);
+  color:var(--green-dark); margin-bottom:20px;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), background-color .35s ease;
+}
+.service-card:hover .service-icon{ transform:rotate(-6deg) scale(1.08); background:var(--green); color:#fff; }
+.service-icon svg{ width:26px; height:26px; }
+.service-card h3{ font-size:1.15rem; margin-bottom:10px; }
+.service-card p{ color:var(--ink-soft); font-size:.96rem; }
+
+/* =========================================================
+   Zasto (values)
+========================================================= */
+.values-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:32px;
+}
+.value-item{ text-align:left; }
+.value-icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:56px; height:56px; border-radius:50%; border:1.5px solid var(--line);
+  color:var(--green-dark); margin-bottom:20px; background:var(--white);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s ease, box-shadow .35s ease;
+}
+.value-item:hover .value-icon{
+  transform:translateY(-4px) scale(1.06); border-color:var(--green); box-shadow:var(--shadow-sm);
+}
+.value-icon svg{ width:26px; height:26px; }
+.value-item h3{ font-size:1.1rem; margin-bottom:8px; }
+.value-item p{ color:var(--ink-soft); font-size:.95rem; }
+
+/* =========================================================
+   Portfolio gallery — uniform grid
+========================================================= */
+.masonry{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+}
+.masonry-item{
+  position:relative;
+  aspect-ratio:4 / 3.2;
+  border-radius:var(--radius-md); overflow:hidden; cursor:pointer;
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .3s ease;
+}
+.masonry-item img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.masonry-item:hover{ box-shadow:var(--shadow-md); }
+.masonry-item:hover img{ transform:scale(1.06); }
+.masonry-item::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%);
+  opacity:0; transition:opacity .3s ease;
+}
+.masonry-item:hover::after{ opacity:1; }
+.masonry-tag{
+  position:absolute; left:16px; bottom:14px; color:#fff; font-size:.85rem; font-weight:600;
+  opacity:0; transform:translateY(8px); transition:opacity .3s ease, transform .3s ease; z-index:1;
+}
+.masonry-item:hover .masonry-tag{ opacity:1; transform:translateY(0); }
+
+/* =========================================================
+   Before / After
+========================================================= */
+.ba-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:26px;
+}
+.ba-item{
+  margin:0; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm);
+}
+.ba-item img{
+  width:100%; height:100%; object-fit:cover;
+  transform:scale(1.06);
+  transition:transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.ba-item.is-visible img{ transform:scale(1); }
+.ba-item:hover img{ transform:scale(1.02); }
+
+/* =========================================================
+   CTA
+========================================================= */
+.cta{ background:var(--charcoal); color:#fff; padding:110px 0; }
+.cta-inner{ text-align:center; max-width:640px; margin:0 auto; }
+.cta h2{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom:16px; }
+.cta p{ color:rgba(255,255,255,.75); font-size:1.05rem; margin-bottom:38px; }
+.cta-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+/* =========================================================
+   About
+========================================================= */
+.about-grid{
+  display:grid; grid-template-columns:1.1fr 1fr; gap:70px; align-items:center;
+}
+.about-media{ border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); }
+.about-media img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/5; }
+.about-text h2{ font-size:clamp(1.8rem, 3vw, 2.4rem); margin-bottom:26px; max-width:14ch; }
+.about-text p{ color:var(--ink-soft); margin-bottom:20px; font-size:1.05rem; line-height:1.7; max-width:50ch; }
+.about-text p:last-child{ margin-bottom:0; }
+
+/* =========================================================
+   Process
+========================================================= */
+.process{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:0; position:relative;
+}
+.process::before{
+  content:""; position:absolute; top:20px; left:6%; right:6%; height:1.5px;
+  background:var(--line);
+}
+.process-step{ position:relative; padding:0 20px 0 0; }
+.process-num{
+  display:block; font-family:var(--font-head); font-size:1rem; font-weight:600;
+  color:var(--green-dark); background:var(--bg-alt); width:40px; height:40px;
+  border:1.5px solid var(--green); border-radius:50%; text-align:center; line-height:37px;
+  margin-bottom:24px; position:relative; z-index:1;
+  opacity:0; transform:scale(.6);
+  transition:opacity .5s ease, transform .5s cubic-bezier(.34,1.56,.64,1);
+  transition-delay:var(--reveal-delay, 0ms);
+}
+.process-step.is-visible .process-num{ opacity:1; transform:scale(1); }
+.process-step h3{ font-size:1.1rem; margin-bottom:8px; }
+.process-step p{ color:var(--ink-soft); font-size:.95rem; }
+
+/* =========================================================
+   Contact
+========================================================= */
+.contact-grid{
+  display:grid; grid-template-columns:1.4fr 1fr; gap:60px; align-items:start;
+}
+.contact-lead{ color:var(--ink-soft); margin-top:14px; margin-bottom:34px; font-size:1.02rem; }
+.contact-form{ display:flex; flex-direction:column; gap:20px; }
+.form-row label{ display:block; font-size:.88rem; font-weight:600; margin-bottom:8px; color:var(--ink); }
+.form-row input, .form-row select, .form-row textarea{
+  width:100%; padding:13px 16px; border:1.5px solid var(--line); border-radius:var(--radius-sm);
+  background:var(--white); transition:border-color .25s ease, box-shadow .25s ease;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus{
+  border-color:var(--green); box-shadow:0 0 0 3px var(--green-tint); outline:none;
+}
+.form-row-half{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.form-submit{ align-self:flex-start; margin-top:6px; }
+.form-status{ font-size:.92rem; color:var(--green-dark); font-weight:600; min-height:1.2em; }
+
+.contact-info-card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:34px; display:flex; flex-direction:column; gap:16px; box-shadow:var(--shadow-sm);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease;
+}
+.contact-info-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
+.contact-info-card h3{ font-size:1.1rem; margin-bottom:4px; }
+.contact-phone, .contact-whatsapp{
+  display:flex; align-items:center; gap:12px; font-weight:600; font-size:1.05rem;
+  padding:14px 18px; border-radius:var(--radius-sm); border:1.5px solid var(--line);
+  transition:border-color .25s ease, color .25s ease, background-color .25s ease;
+}
+.contact-phone:hover{ border-color:var(--green); color:var(--green-dark); background:var(--green-tint); }
+.contact-whatsapp{ color:#25D366; }
+.contact-whatsapp:hover{ border-color:#25D366; background:rgba(37,211,102,.08); }
+.contact-note{ font-size:.88rem; color:var(--ink-faint); line-height:1.5; }
+
+/* =========================================================
+   Mobile floating bar
+========================================================= */
+.mobile-bar{
+  display:none; position:fixed; left:0; right:0; bottom:0; z-index:90;
+  background:rgba(250,250,247,.96); backdrop-filter:blur(10px);
+  border-top:1px solid var(--line); box-shadow:0 -8px 24px rgba(0,0,0,.08);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  align-items:center; gap:0;
+}
+.mobile-bar-btn{
+  flex:1; display:flex; align-items:center; justify-content:center; gap:8px;
+  font-weight:600; font-size:.92rem; padding:12px 8px; border-radius:var(--radius-sm);
+  color:var(--ink);
+}
+.mobile-bar-btn-primary{ background:var(--green); color:#fff; }
+.mobile-bar-divider{ width:10px; }
+
+/* =========================================================
+   Footer
+========================================================= */
+.footer{ background:var(--charcoal); color:rgba(255,255,255,.85); padding:70px 0 0; }
+.footer-grid{
+  display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; padding-bottom:50px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.footer-logo{ height:38px; width:auto; filter:brightness(0) invert(1); margin-bottom:16px; }
+.footer-brand p{ color:rgba(255,255,255,.6); font-size:.92rem; max-width:32ch; }
+.footer-nav{ display:flex; flex-direction:column; gap:12px; }
+.footer-nav a{
+  color:rgba(255,255,255,.75); font-size:.94rem; transition:color .25s ease;
+  display:inline-block; position:relative; width:fit-content;
+}
+.footer-nav a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-3px; height:1px;
+  background:var(--green); transform:scaleX(0); transform-origin:left;
+  transition:transform .3s ease;
+}
+.footer-nav a:hover{ color:var(--green); }
+.footer-nav a:hover::after{ transform:scaleX(1); }
+.footer-contact h3{ font-size:.95rem; margin-bottom:14px; color:#fff; }
+.footer-contact a{ color:rgba(255,255,255,.75); font-size:.95rem; }
+.footer-contact a:hover{ color:var(--green); }
+.footer-bottom{ padding:22px 0; text-align:center; }
+.footer-bottom p{ color:rgba(255,255,255,.45); font-size:.85rem; }
+
+/* =========================================================
+   Lightbox
+========================================================= */
+.lightbox{
+  position:fixed; inset:0; z-index:200; background:rgba(10,10,7,.94);
+  display:flex; align-items:center; justify-content:center; padding:40px;
+}
+.lightbox[hidden]{ display:none; }
+.lightbox-figure{ max-width:min(1100px, 92vw); max-height:86vh; margin:0; text-align:center; }
+.lightbox-figure img{ max-width:100%; max-height:76vh; border-radius:8px; margin:0 auto; object-fit:contain; }
+.lightbox-figure figcaption{ color:#fff; margin-top:16px; font-size:.95rem; opacity:.8; }
+.lightbox-close{
+  position:absolute; top:24px; right:24px; color:#fff; width:44px; height:44px;
+  display:flex; align-items:center; justify-content:center; border-radius:50%;
+  transition:background-color .25s ease;
+}
+.lightbox-close:hover{ background:rgba(255,255,255,.12); }
+.lightbox-nav{
+  position:absolute; top:50%; transform:translateY(-50%); color:#fff; width:52px; height:52px;
+  display:flex; align-items:center; justify-content:center; border-radius:50%;
+  transition:background-color .25s ease;
+}
+.lightbox-nav:hover{ background:rgba(255,255,255,.12); }
+.lightbox-prev{ left:16px; }
+.lightbox-next{ right:16px; }
+
+/* =========================================================
+   Responsive
+========================================================= */
+@media (max-width: 1024px){
+  .services-grid{ grid-template-columns:repeat(2, 1fr); }
+  .values-grid{ grid-template-columns:repeat(2, 1fr); gap:36px; }
+  .masonry{ grid-template-columns:repeat(3, 1fr); }
+  .about-grid{ grid-template-columns:1fr; gap:40px; }
+  .about-media img{ aspect-ratio:16/9; }
+  .contact-grid{ grid-template-columns:1fr; gap:44px; }
+  .process{ grid-template-columns:repeat(2, 1fr); gap:40px 24px; }
+  .process::before{ display:none; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .footer-brand{ grid-column:1 / -1; }
+}
+
+@media (max-width: 760px){
+  .section{ padding:76px 0; }
+  .section-head{ margin-bottom:38px; }
+
+  .nav-links{
+    position:fixed; top:var(--nav-h); left:0; right:0; bottom:0;
+    background:var(--bg); flex-direction:column; align-items:flex-start;
+    padding:32px 28px; gap:22px; overflow-y:auto;
+    transform:translateX(100%); transition:transform .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-link{ color:var(--ink); font-size:1.1rem; width:100%; }
+  .nav-link.active::after{ display:none; }
+  .nav-cta{ margin-left:0; margin-top:10px; }
+  .menu-toggle{ display:flex; }
+
+  .hero-content{ padding-bottom:120px; }
+  .hero-actions{ flex-direction:column; align-items:stretch; }
+  .hero-actions .btn{ width:100%; }
+
+  .services-grid{ grid-template-columns:1fr; }
+  .values-grid{ grid-template-columns:1fr; gap:30px; }
+
+  .masonry{ grid-template-columns:repeat(2, 1fr); }
+
+  .ba-grid{ grid-template-columns:1fr; }
+
+  .process{ grid-template-columns:1fr; gap:32px; }
+
+  .form-row-half{ grid-template-columns:1fr; }
+
+  .footer-grid{ grid-template-columns:1fr; gap:34px; }
+
+  .mobile-bar{ display:flex; }
+  body{ padding-bottom:74px; }
+
+  .lightbox-nav{ width:44px; height:44px; }
+  .lightbox{ padding:20px; }
+}
+/* =========================================================
+   Naš tim na terenu
+========================================================= */
+.team-photos{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+  margin-bottom:28px;
+}
+.team-photos .masonry-item{ aspect-ratio:4 / 3.2; }
+
+.team-video-wrap{
+  border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm);
+  background:#000;
+}
+.team-video-wrap video{
+  width:100%; max-height:640px; display:block; object-fit:cover; background:#000;
+}
+.team-video-caption{
+  margin-top:14px; color:var(--ink-faint); font-size:.9rem;
+}
+
+@media (max-width: 1024px){
+  .team-photos{ grid-template-columns:repeat(2, 1fr); }
+}
+@media (max-width: 760px){
+  .team-photos{ grid-template-columns:1fr; }
+  .team-video-wrap video{ max-height:320px; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="#pocetna" class="brand" aria-label="AB Seal.doo — početna">
+      <img src="logo.png" alt="AB Seal.doo" class="brand-logo">
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Glavna navigacija">
+      <a href="#pocetna" class="nav-link active" data-nav>Početna</a>
+      <a href="#usluge" class="nav-link" data-nav>Usluge</a>
+      <a href="#radovi" class="nav-link" data-nav>Naši radovi</a>
+      <a href="#prije-poslije" class="nav-link" data-nav>Prije i poslije</a>
+      <a href="#o-nama" class="nav-link" data-nav>O nama</a>
+      <a href="#kontakt" class="nav-link" data-nav>Kontakt</a>
+      <a href="#kontakt" class="btn btn-green btn-sm nav-cta">Zatražite ponudu</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Otvori meni" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="pocetna">
+  <div class="hero-media">
+    <img src="13.png" alt="Moderan dnevni boravak sa toplim osvjetljenjem, primjer završenog krečenja" fetchpriority="high">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-trust reveal">Precizno&nbsp;•&nbsp;Čisto&nbsp;•&nbsp;Pouzdano</p>
+    <h1 class="hero-title reveal">Profesionalno krečenje<br>bez kompromisa.</h1>
+    <p class="hero-sub reveal">Mašinsko gletovanje i profesionalno krečenje velikih i malih objekata u Crnoj Gori – brzo, čisto i precizno</p>
+    <div class="hero-actions reveal">
+      <a href="#kontakt" class="btn btn-green btn-lg">Zatražite ponudu</a>
+      <a href="#radovi" class="btn btn-outline btn-lg">Pogledajte naše radove</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ USLUGE ============ -->
+<section class="section" id="usluge">
+  <div class="container">
+    <div class="section-head">
+      <h2>Naše usluge</h2>
+      <p>Od pripreme do posljednjeg poteza – vaš prostor u sigurnim rukama.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <span class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M8 26h16v6a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3v-6Z" stroke="currentColor" stroke-width="1.6"/><path d="M12 26v-5c0-2.2 1.8-4 4-4s4 1.8 4 4v5" stroke="currentColor" stroke-width="1.6"/><path d="M14 17V9.5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2V17" stroke="currentColor" stroke-width="1.6"/><path d="M27 10 33 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Krečenje stanova i kuća</h3>
+        <p>Čist i precizan rad u stambenim prostorima, od jedne prostorije do kompletnog objekta.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><rect x="8" y="10" width="24" height="24" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M8 18h24M16 34V18M24 34V18" stroke="currentColor" stroke-width="1.6"/><path d="M20 6v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Krečenje poslovnih prostora</h3>
+        <p>Rad prilagođen radnom vremenu firme, uz minimalno ometanje poslovanja.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><rect x="7" y="7" width="26" height="26" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M7 15h26" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+        <h3>Krečenje zidova i plafona</h3>
+        <p>Ravnomjeran nanos boje i čiste linije, bez tragova i mrlja.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.6"/><path d="M20 7v26M7 20h26" stroke="currentColor" stroke-width="1.2" opacity=".5"/></svg>
+        </span>
+        <h3>Promjena boje enterijera</h3>
+        <p>Savjet oko nijansi i kompletna promjena atmosfere prostora.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M8 32c3-8 5-18 12-18s9 10 12 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 32h24" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Osvježavanje postojećih zidova</h3>
+        <p>Sanacija manjih oštećenja i nova boja preko postojećih površina.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M20 5 33 12v9c0 8-5.5 12.7-13 14-7.5-1.3-13-6-13-14v-9L20 5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Krečenje fasada / eksterijera</h3>
+        <p>Zaštita i osvježavanje spoljašnjih zidova otpornim premazima.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZASTO AB SEAL ============ -->
+<section class="section section-alt" id="zasto">
+  <div class="container">
+    <div class="section-head">
+      <h2>Zašto izabrati AB Seal?</h2>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-item">
+        <span class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.6"/><circle cx="20" cy="20" r="7" stroke="currentColor" stroke-width="1.6"/><circle cx="20" cy="20" r="1.6" fill="currentColor"/></svg>
+        </span>
+        <h3>Preciznost</h3>
+        <p>Vodimo računa o svakom detalju.</p>
+      </div>
+      <div class="value-item">
+        <span class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M12 6h16l-2 9c-1 5-4 8-6 9-2-1-5-4-6-9L12 6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 30h12M17 34h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Čistoća</h3>
+        <p>Prostor ostavljamo urednim i čistim.</p>
+      </div>
+      <div class="value-item">
+        <span class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.6"/><path d="M20 11v9l6 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Pouzdanost</h3>
+        <p>Dogovoreni rokovi i jasna komunikacija.</p>
+      </div>
+      <div class="value-item">
+        <span class="value-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M8 21 16 29 32 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Kvalitet</h3>
+        <p>Rezultat koji traje i izgleda profesionalno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO / GALERIJA ============ -->
+<section class="section" id="radovi">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Završni radovi</p>
+      <h2>Prostori kojima smo dali novi izgled</h2>
+      <p>Pogledajte izbor završenih projekata i pronađite inspiraciju za svoj prostor.</p>
+    </div>
+
+    <div class="masonry" id="masonry">
+      <button class="masonry-item" data-full="11.png" data-caption="Dnevni boravak">
+        <img src="11.png" loading="lazy" alt="Dnevni boravak sa svijetlim zidovima nakon krečenja">
+        <span class="masonry-tag">Dnevni boravak</span>
+      </button>
+
+      <button class="masonry-item" data-full="4.png" data-caption="Spavaća soba">
+        <img src="4.png" loading="lazy" alt="Spavaća soba okrečena u tamnozelenu nijansu">
+        <span class="masonry-tag">Spavaća soba</span>
+      </button>
+
+      <button class="masonry-item" data-full="12.png" data-caption="Hodnik">
+        <img src="12.png" loading="lazy" alt="Hodnik sa svježe okrečenim zidovima">
+        <span class="masonry-tag">Hodnik</span>
+      </button>
+
+      <button class="masonry-item" data-full="9.png" data-caption="Eksterijer">
+        <img src="9.png" loading="lazy" alt="Kuća sa okrečenom fasadom">
+        <span class="masonry-tag">Eksterijer</span>
+      </button>
+
+      <button class="masonry-item" data-full="8.png" data-caption="Spavaća soba">
+        <img src="8.png" loading="lazy" alt="Spavaća soba okrečena u plavu nijansu">
+        <span class="masonry-tag">Spavaća soba</span>
+      </button>
+
+      <button class="masonry-item" data-full="6.png" data-caption="Dnevni boravak">
+        <img src="6.png" loading="lazy" alt="Dnevni boravak okrečen u maslinasto zelenu nijansu">
+        <span class="masonry-tag">Dnevni boravak</span>
+      </button>
+
+      <button class="masonry-item" data-full="2.png" data-caption="Kupatilo">
+        <img src="2.png" loading="lazy" alt="Okrečeno kupatilo">
+        <span class="masonry-tag">Kupatilo</span>
+      </button>
+
+      <button class="masonry-item" data-full="1.png" data-caption="Spavaća soba">
+        <img src="1.png" loading="lazy" alt="Spavaća soba sa radnim prostorom, svježe okrečena">
+        <span class="masonry-tag">Spavaća soba</span>
+      </button>
+
+      <button class="masonry-item" data-full="5.png" data-caption="Eksterijer">
+        <img src="5.png" loading="lazy" alt="Stambena zgrada sa okrečenom fasadom, večernje osvjetljenje">
+        <span class="masonry-tag">Eksterijer</span>
+      </button>
+
+      <button class="masonry-item" data-full="3.png" data-caption="Spavaća soba">
+        <img src="3.png" loading="lazy" alt="Spavaća soba okrečena u zelenu nijansu">
+        <span class="masonry-tag">Spavaća soba</span>
+      </button>
+
+      <button class="masonry-item" data-full="10.png" data-caption="Enterijer">
+        <img src="10.png" loading="lazy" alt="Svježe okrečen prostor spreman za useljenje">
+        <span class="masonry-tag">Enterijer</span>
+      </button>
+
+      <button class="masonry-item" data-full="7.png" data-caption="Enterijer">
+        <img src="7.png" loading="lazy" alt="Svijetao, svježe okrečen enterijer">
+        <span class="masonry-tag">Enterijer</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIJE / POSLIJE ============ -->
+<section class="section section-alt" id="prije-poslije">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Prije | Poslije</p>
+      <h2>Rezultati koji govore sami za sebe</h2>
+      <p>Pogledajte kako profesionalno krečenje može potpuno promijeniti izgled prostora.</p>
+    </div>
+
+    <div class="ba-grid">
+      <figure class="ba-item">
+        <img src="Prijeposlije2.png" loading="lazy" alt="Prostor prije i poslije krečenja — soba u izgradnji naspram gotove, svijetle sobe">
+      </figure>
+      <figure class="ba-item">
+        <img src="Prijeposlije4.png" loading="lazy" alt="Hodnik prije i poslije krečenja">
+      </figure>
+      <figure class="ba-item">
+        <img src="Prijeposlije3.png" loading="lazy" alt="Prostorija prije i poslije krečenja, priprema i završen rad">
+      </figure>
+      <figure class="ba-item">
+        <img src="Prijeposlije1.png" loading="lazy" alt="Soba prije i poslije krečenja u zelenu nijansu">
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- ============ NAŠ TIM NA TERENU ============ -->
+<section class="section" id="nas-tim">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Naš tim</p>
+      <h2>Kako izgleda naš rad iz dana u dan</h2>
+      <p>Fotografije sa naših gradilišta - bez pozerstva, samo posao kako treba urađen.</p>
+    </div>
+
+    <div class="team-photos">
+
+      <button class="masonry-item" data-full="rad3.jpeg" data-caption="Nanošenje boje">
+        <img src="rad3.jpeg" loading="lazy" alt="Naš tim nanosi boju mašinom za prskanje">
+        <span class="masonry-tag">Nanošenje boje</span>
+      </button>
+
+      <button class="masonry-item" data-full="rad1.jpeg" data-caption="Priprema prostora">
+        <img src="rad1.jpeg" loading="lazy" alt="Priprema i zaštita prostora prije krečenja">
+        <span class="masonry-tag">Priprema prostora</span>
+      </button>
+
+      <button class="masonry-item" data-full="rad2.jpeg" data-caption="Naša oprema">
+        <img src="rad2.jpeg" loading="lazy" alt="Profesionalna oprema koju koristimo na gradilištu">
+        <span class="masonry-tag">Naša oprema</span>
+      </button>
+
+      <button class="masonry-item" data-full="zgrada2.jpeg" data-caption="Projekat u izgradnji">
+        <img src="zgrada2.jpeg" loading="lazy" alt="Stambena zgrada u izgradnji, jedan od naših projekata">
+        <span class="masonry-tag">Projekat u izgradnji</span>
+      </button>
+
+      <button class="masonry-item" data-full="zgrada1.jpeg" data-caption="Završena fasada">
+        <img src="zgrada1.jpeg" loading="lazy" alt="Okrečena fasada stambenog objekta">
+        <span class="masonry-tag">Završena fasada</span>
+      </button>
+
+    </div>
+
+    <div class="team-video-wrap">
+      <video src="snimak.mp4" poster="rad3.jpeg" controls playsinline muted loop>
+        Vaš browser ne podržava video prikaz.
+      </video>
+    </div>
+    <p class="team-video-caption">Rad u toku — pogled iz naše svakodnevice na terenu.</p>
+  </div>
+</section>
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="container cta-inner">
+    <h2>Vrijeme je za novu boju vašeg prostora.</h2>
+    <p>Kontaktirajte nas i dogovorite besplatnu procjenu radova.</p>
+    <div class="cta-actions">
+      <a href="#kontakt" class="btn btn-green btn-lg">Zatražite ponudu</a>
+      <a href="tel:069111200" class="btn btn-ghost btn-lg">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        Pozovite nas
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O NAMA ============ -->
+<section class="section about" id="o-nama">
+  <div class="container about-grid">
+    <div class="about-media">
+      <img src="11.png" loading="lazy" alt="Enterijer sa toplim osvjetljenjem, primjer rada AB Seal.doo">
+    </div>
+    <div class="about-text">
+      <p class="eyebrow">O nama</p>
+      <h2>Vaš prostor. Naša preciznost.</h2>
+      <p>AB Seal.doo pruža profesionalne usluge krečenja sa fokusom na kvalitet, preciznost i čist završni rezultat. Svakom prostoru pristupamo pažljivo, od pripreme do posljednjeg poteza, sa ciljem da rezultat bude upravo onakav kakav ste zamislili.</p>
+      <p>Bilo da želite osvježiti jednu prostoriju, kompletan stan, kuću ili poslovni prostor, možete računati na pouzdanu uslugu i kvalitetnu izvedbu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCES RADA ============ -->
+<section class="section section-alt" id="proces">
+  <div class="container">
+    <div class="section-head">
+      <h2>Kako radimo</h2>
+    </div>
+
+    <div class="process">
+      <div class="process-step">
+        <span class="process-num">01</span>
+        <h3>Kontakt</h3>
+        <p>Javite nam šta želite da osvježite.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">02</span>
+        <h3>Procjena</h3>
+        <p>Dogovaramo detalje i procjenjujemo obim radova.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">03</span>
+        <h3>Krečenje</h3>
+        <p>Precizno izvodimo dogovorene radove uz zaštitu prostora.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">04</span>
+        <h3>Završetak</h3>
+        <p>Predajemo uredan prostor spreman za korištenje.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAKT ============ -->
+<section class="section contact" id="kontakt">
+  <div class="container contact-grid">
+    <div class="contact-form-wrap">
+      <p class="eyebrow">Zatražite ponudu</p>
+      <h2>Pošaljite nam osnovne informacije o prostoru</h2>
+      <p class="contact-lead">Javićemo vam se radi dogovora u najkraćem mogućem roku.</p>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <label for="ime">Ime i prezime</label>
+          <input type="text" id="ime" name="ime" autocomplete="name" required>
+        </div>
+        <div class="form-row form-row-half">
+          <div>
+            <label for="telefon">Broj telefona</label>
+            <input type="tel" id="telefon" name="telefon" autocomplete="tel" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="vrsta">Vrsta prostora</label>
+          <select id="vrsta" name="vrsta">
+            <option value="">Izaberite opciju</option>
+            <option value="stan">Stan</option>
+            <option value="kuca">Kuća</option>
+            <option value="poslovni">Poslovni prostor</option>
+            <option value="ostalo">Ostalo</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="poruka">Poruka</label>
+          <textarea id="poruka" name="poruka" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-green btn-lg form-submit">Pošaljite upit</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <aside class="contact-info">
+      <div class="contact-info-card">
+        <h3>Kontakt informacije</h3>
+        <a class="contact-phone" href="tel:069111200">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.6"/></svg>
+          069 111 200
+        </a>
+
+        <a class="contact-whatsapp" id="whatsappLink" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.2-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.3.1.2 1.6 2.4 3.8 3.4.5.2.9.4 1.2.5.5.2 1 .1 1.3 0 .4-.1 1.2-.5 1.4-.9.2-.5.2-.9.1-.9-.1 0-.2-.1-.4-.2Z"/></svg>
+          WhatsApp
+        </a>
+
+        <p class="contact-note">Email i radno vrijeme dodajemo uskoro — kontaktirajte nas telefonom ili porukom.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FLOATING MOBILE CONTACT BAR ============ -->
+<div class="mobile-bar" role="navigation" aria-label="Brzi kontakt">
+  <a href="tel:069111200" class="mobile-bar-btn">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.7"/></svg>
+    Pozovi
+  </a>
+  <span class="mobile-bar-divider" aria-hidden="true"></span>
+  <a href="#kontakt" class="mobile-bar-btn mobile-bar-btn-primary">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M3 5h18M3 5l9 8 9-8M3 5v14h18V5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    Pošalji upit
+  </a>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="logo.png" alt="AB Seal.doo" class="footer-logo">
+      <p>Profesionalno krečenje za domove i poslovne prostore.</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Navigacija u footeru">
+      <a href="#pocetna">Početna</a>
+      <a href="#usluge">Usluge</a>
+      <a href="#radovi">Naši radovi</a>
+      <a href="#prije-poslije">Prije i poslije</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <div class="footer-contact">
+      <h3>Kontakt</h3>
+      <a href="tel:069111200">069 111 200</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> AB Seal.doo. Sva prava zadržana.</p>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pregled fotografije" hidden>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Zatvori">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Prethodna fotografija">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M15 5 8 12l7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <figure class="lightbox-figure">
+    <img src="" alt="" id="lightboxImg">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Sljedeća fotografija">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- CONFIG ---------- */
+  // Change this when the WhatsApp number is confirmed (international format, no + or spaces)
+  var WHATSAPP_NUMBER = "38269111200";
+  var whatsappLink = document.getElementById("whatsappLink");
+  if (whatsappLink) {
+    whatsappLink.href = "https://wa.me/" + WHATSAPP_NUMBER;
+  }
+
+  /* ---------- Footer year ---------- */
+  var yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---------- Sticky navbar on scroll ---------- */
+  var navbar = document.getElementById("navbar");
+  function updateNavbar() {
+    if (window.scrollY > 40) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  }
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar, { passive: true });
+
+  /* ---------- Mobile menu ---------- */
+  var menuToggle = document.getElementById("menuToggle");
+  var navLinks = document.getElementById("navLinks");
+
+  function closeMenu() {
+    menuToggle.classList.remove("open");
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+  function toggleMenu() {
+    var isOpen = navLinks.classList.toggle("open");
+    menuToggle.classList.toggle("open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }
+  menuToggle.addEventListener("click", toggleMenu);
+  navLinks.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", closeMenu);
+  });
+
+  /* ---------- Active nav link on scroll (Intersection Observer) ---------- */
+  var sections = Array.prototype.slice.call(document.querySelectorAll("section[id]"));
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll(".nav-link[data-nav]"));
+
+  if ("IntersectionObserver" in window && sections.length) {
+    var navObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.getAttribute("id");
+            navAnchors.forEach(function (a) {
+              a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+            });
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach(function (s) { navObserver.observe(s); });
+  }
+
+  /* ---------- Scroll reveal for section content ---------- */
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Groups that get a light stagger — delay resets per group so long lists
+  // (like the portfolio grid) never feel sluggish.
+  var staggerGroups = [
+    ".service-card",
+    ".value-item",
+    ".masonry-item",
+    ".ba-item",
+    ".process-step"
+  ];
+  staggerGroups.forEach(function (selector) {
+    var items = document.querySelectorAll(selector);
+    items.forEach(function (el, i) {
+      el.classList.add("animate-in");
+      if (!reducedMotion) {
+        el.style.setProperty("--reveal-delay", (i % 4) * 90 + "ms");
+      }
+    });
+  });
+
+  // Single elements that simply fade/slide in once, no stagger needed.
+  var singleReveal = document.querySelectorAll(
+    ".section-head, .about-media, .about-text, .contact-form-wrap, .contact-info, .cta-inner"
+  );
+  singleReveal.forEach(function (el) { el.classList.add("animate-in"); });
+
+  var revealTargets = document.querySelectorAll(".animate-in");
+
+  if ("IntersectionObserver" in window) {
+    var revealObserver = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    revealTargets.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  /* ---------- Subtle hero parallax ---------- */
+  var heroImg = document.querySelector(".hero-media img");
+  if (heroImg && !reducedMotion) {
+    var ticking = false;
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var offset = Math.min(window.scrollY * 0.18, 120);
+          heroImg.style.transform = "translateY(" + offset + "px) scale(1.08)";
+          ticking = false;
+        });
+      },
+      { passive: true }
+    );
+  }
+
+  /* ---------- Lightbox gallery ---------- */
+  var masonryItems = Array.prototype.slice.call(document.querySelectorAll(".masonry-item"));
+  var lightbox = document.getElementById("lightbox");
+  var lightboxImg = document.getElementById("lightboxImg");
+  var lightboxCaption = document.getElementById("lightboxCaption");
+  var lightboxClose = document.getElementById("lightboxClose");
+  var lightboxPrev = document.getElementById("lightboxPrev");
+  var lightboxNext = document.getElementById("lightboxNext");
+  var currentIndex = 0;
+  var lastFocusedEl = null;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    var item = masonryItems[currentIndex];
+    lightboxImg.src = item.getAttribute("data-full");
+    lightboxImg.alt = item.querySelector("img").alt;
+    lightboxCaption.textContent = item.getAttribute("data-caption") || "";
+    lastFocusedEl = document.activeElement;
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.hidden = true;
+    document.body.style.overflow = "";
+    if (lastFocusedEl) lastFocusedEl.focus();
+  }
+
+  function showRelative(delta) {
+    currentIndex = (currentIndex + delta + masonryItems.length) % masonryItems.length;
+    openLightbox(currentIndex);
+  }
+
+  masonryItems.forEach(function (item, index) {
+    item.addEventListener("click", function () { openLightbox(index); });
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightboxPrev.addEventListener("click", function () { showRelative(-1); });
+  lightboxNext.addEventListener("click", function () { showRelative(1); });
+
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showRelative(-1);
+    if (e.key === "ArrowRight") showRelative(1);
+  });
+
+  /* ---------- Contact form (front-end only placeholder) ---------- */
+  var form = document.getElementById("contactForm");
+  var formStatus = document.getElementById("formStatus");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      // NOTE: No backend is connected yet. Wire this up to an email service,
+      // form endpoint, or backend API to actually receive submissions.
+      formStatus.textContent = "Hvala! Vaš upit je pripremljen — javićemo vam se uskoro.";
+      form.reset();
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
